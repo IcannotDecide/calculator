@@ -1,0 +1,22 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.calculator, .display {
+    display: flex;
+    flex: 1;
+}
+
+.clear {
+    flex-grow: 2;
+}
+
+button {
+    flex: 1;
+}
+
+.display {
+    justify-content: flex-end;
+}
