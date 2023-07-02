@@ -1,0 +1,1 @@
+Make display work properly. Make use of the variables I created for leftNum, rightNum and operator to do this.
