@@ -9,28 +9,32 @@ const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
 
 function add(num1, num2) {
-    leftNum = (+num1 + +num2).toFixed.toString();
+    leftNum = (+(+num1 + +num2).toFixed(2)).toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function subtract(num1, num2) {
-    leftNum = (+num1 - +num2).toFixed.toString();
+    leftNum = (+(+num1 - +num2).toFixed(2)).toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function multiply(num1, num2) {
-    leftNum = (+num1 * +num2).toFixed(2).toString();
+    leftNum = (+(+num1 * +num2).toFixed(2)).toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function divide(num1, num2) {
-    leftNum = (+num1 / +num2).toFixed.toString();
+    if (rightNum === "0") {
+        alert("You can't divide by 0!");
+        return clearDisplay();
+    };
+    leftNum = (+(+num1 / +num2).toFixed(2)).toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
@@ -95,7 +99,7 @@ operators.forEach(operator => {
 });
 
 function operatorOnClick(e) {
-    if (leftNum === null) return;
+    if (leftNum === null) leftNum = "0";
     if (operator === null) {
         operator = e.srcElement.innerText;
         return display.textContent = leftNum + operator
@@ -112,6 +116,7 @@ function clearDisplay() {
 };
 
 equals.addEventListener("click", () => {
-    if(rightNum === null) return;
-    operate(leftNum, operator, rightNum);
+    if(operator === null) return;
+    if(rightNum === null) rightNum = "0";
+    return operate(leftNum, operator, rightNum);
 });
