@@ -28,18 +28,36 @@ function operate(leftNum, operator, rightNum) {
     return add(leftNum, rightNum)
 };
 
-function onClick(e) {
-    console.log(display.innerHTML)
-    display.textContent += e.srcElement.innerText
+nums.forEach(num => {
+    num.addEventListener("click", numOnClick)
+})
+
+function numOnClick(e) {
+    if (leftNum === undefined) {
+        if (e.srcElement.innerText === "0") return ;
+        if (e.srcElement.innerText === ".") {
+            leftNum = "0.";
+            return display.textContent = leftNum;
+        }
+        leftNum = e.srcElement.innerText;
+        return display.textContent = leftNum;
+    }
+
+    if (leftNum.includes(".") && e.srcElement.innerText == ".") {
+        return
+    };
+
+    leftNum += e.srcElement.innerText;
+    display.textContent = leftNum;
 };
 
-nums.forEach(num => {
-    num.addEventListener("click", onClick)
-})
-
 operators.forEach(operator => {
-    operator.addEventListener("click", onClick)
-})
+    operator.addEventListener("click", operatorOnClick)
+});
+
+function operatorOnClick(e) {
+
+}
 
 clear.addEventListener("click", clearDisplay);
 
