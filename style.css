@@ -1,12 +1,25 @@
+body {
+    background-color: gray;
+}
+
+.flex-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;
     width: 200px;
+    background-color: black;
 }
 
 .calculator, .display {
     display: flex;
     flex: 1;
+    padding: 10px;
 }
 
 .clear {
@@ -19,4 +32,5 @@ button {
 
 .display {
     justify-content: flex-end;
+    color: white;
 }
