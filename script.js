@@ -1,6 +1,6 @@
-let leftNum;
-let operator;
-let rightNum;
+let leftNum = null;
+let operator = null;
+let rightNum = null;
 
 const display = document.querySelector(".display");
 const nums = document.querySelectorAll(".nums");
@@ -29,11 +29,11 @@ function operate(leftNum, operator, rightNum) {
 };
 
 nums.forEach(num => {
-    num.addEventListener("click", numOnClick)
+    num.addEventListener("click", rightNumOnClick)
 })
 
-function numOnClick(e) {
-    if (leftNum === undefined) {
+function rightNumOnClick(e) {
+    if (leftNum === null) {
         if (e.srcElement.innerText === "0") return ;
         if (e.srcElement.innerText === ".") {
             leftNum = "0.";
@@ -56,11 +56,17 @@ operators.forEach(operator => {
 });
 
 function operatorOnClick(e) {
-
-}
+    if (operator === null) {
+        operator = e.srcElement.innerText;
+        return display.textContent = leftNum + operator
+    }
+};
 
 clear.addEventListener("click", clearDisplay);
 
 function clearDisplay() {
     display.textContent = 0
+    leftNum = null;
+    operator = null;
+    rightNum = null;
 };
