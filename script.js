@@ -9,28 +9,28 @@ const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
 
 function add(num1, num2) {
-    leftNum = (+num1 + +num2).toString();
+    leftNum = (+num1 + +num2).toFixed.toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function subtract(num1, num2) {
-    leftNum = (+num1 - +num2).toString();
+    leftNum = (+num1 - +num2).toFixed.toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function multiply(num1, num2) {
-    leftNum = (+num1 * +num2).toString();
+    leftNum = (+num1 * +num2).toFixed(2).toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
 };
 
 function divide(num1, num2) {
-    leftNum = (+num1 / +num2).toString();
+    leftNum = (+num1 / +num2).toFixed.toString();
     display.textContent = leftNum;
     operator = null;
     rightNum = null;
