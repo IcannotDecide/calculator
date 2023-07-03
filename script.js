@@ -95,10 +95,11 @@ operators.forEach(operator => {
 });
 
 function operatorOnClick(e) {
+    if (leftNum === null) return;
     if (operator === null) {
         operator = e.srcElement.innerText;
         return display.textContent = leftNum + operator
-    }
+    };
 };
 
 clear.addEventListener("click", clearDisplay);
