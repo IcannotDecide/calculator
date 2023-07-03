@@ -6,26 +6,42 @@ const display = document.querySelector(".display");
 const nums = document.querySelectorAll(".nums");
 const operators = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
+const equals = document.querySelector(".equals");
 
 function add(num1, num2) {
-    return num1 + num2;
+    leftNum = (+num1 + +num2).toString();
+    display.textContent = leftNum;
+    operator = null;
+    rightNum = null;
 };
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    leftNum = (+num1 - +num2).toString();
+    display.textContent = leftNum;
+    operator = null;
+    rightNum = null;
 };
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    leftNum = (+num1 * +num2).toString();
+    display.textContent = leftNum;
+    operator = null;
+    rightNum = null;
 };
 
 function divide(num1, num2) {
-    return num1 / num2;
+    leftNum = (+num1 / +num2).toString();
+    display.textContent = leftNum;
+    operator = null;
+    rightNum = null;
 };
 
 
 function operate(leftNum, operator, rightNum) {
-    return add(leftNum, rightNum)
+    if (operator === "+") return add(leftNum, rightNum);
+    if (operator === "-") return subtract(leftNum, rightNum);
+    if (operator === "x") return multiply(leftNum, rightNum);
+    if (operator === "÷") return divide(leftNum, rightNum);
 };
 
 nums.forEach(num => {
@@ -93,3 +109,8 @@ function clearDisplay() {
     operator = null;
     rightNum = null;
 };
+
+equals.addEventListener("click", () => {
+    if(rightNum === null) return;
+    operate(leftNum, operator, rightNum);
+});
