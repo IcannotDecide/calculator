@@ -7,6 +7,7 @@ const nums = document.querySelectorAll(".nums");
 const operators = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
+const del = document.querySelector(".delete");
 
 function add(num1, num2) {
     leftNum = (+(+num1 + +num2).toFixed(2)).toString();
@@ -51,13 +52,13 @@ function operate(leftNum, operator, rightNum) {
 nums.forEach(num => {
     num.addEventListener("click", (e) => {
         if (operator === null) return leftNumOnClick(e);
-        
+
         rightNumOnClick(e)
     })
 })
 
 function leftNumOnClick(e) {
-    if (leftNum === null) {
+    if (leftNum === null || leftNum === "0") {
         if (e.srcElement.innerText === "0") return;
         if (e.srcElement.innerText === ".") {
             leftNum = "0.";
@@ -116,7 +117,32 @@ function clearDisplay() {
 };
 
 equals.addEventListener("click", () => {
-    if(operator === null) return;
-    if(rightNum === null) rightNum = "0";
+    if (operator === null) return;
+    if (rightNum === null) rightNum = "0";
     return operate(leftNum, operator, rightNum);
 });
+
+del.addEventListener("click", deleteNum);
+
+function deleteNum() {
+    if (rightNum !== null) {
+        if (rightNum.length !== 1) {
+            rightNum = rightNum.slice(0, -1);
+            return display.textContent = leftNum + operator + rightNum
+        } else {
+            rightNum = null;
+            display.textContent = leftNum + operator
+        };
+    } else if (operator !== null) {
+        operator = null;
+        display.textContent = leftNum;
+    } else if (leftNum !== null) {
+        if (leftNum.length > 1) {
+            leftNum = leftNum.slice(0, -1);
+            return display.textContent = leftNum
+        } else {
+            leftNum = null;
+            display.textContent = 0
+        };
+    };
+};

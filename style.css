@@ -22,10 +22,6 @@ body {
     padding: 10px;
 }
 
-.clear {
-    flex-grow: 2;
-}
-
 button {
     flex: 1;
 }
@@ -33,4 +29,8 @@ button {
 .display {
     justify-content: flex-end;
     color: white;
+}
+
+.delete {
+    flex-grow: 2;
 }
