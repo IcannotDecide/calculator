@@ -35,7 +35,7 @@ button {
     width: 50px;
     height: 37.5px;
     color: white;
-    background-color: gray;
+    background-color: darkgray;
 }
 
 button:active {
@@ -45,6 +45,7 @@ button:active {
 .display {
     justify-content: flex-end;
     color: white;
+    padding-top: 20px;
 }
 
 .delete {
