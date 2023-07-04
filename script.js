@@ -146,3 +146,19 @@ function deleteNum() {
         };
     };
 };
+
+window.addEventListener('keydown', keyboardFunctionality);
+
+function keyboardFunctionality(e) {
+    if (e.key === "=") {
+        const button = document.querySelector(`button[data-button="Enter"]`);
+        button.click();
+    } else if (e.key === "x") {
+        const button = document.querySelector(`button[data-button="*"]`);
+        button.click();
+    };
+    const button = document.querySelector(`button[data-button="${e.key}"]`);
+    if (!button) return
+    button.click()
+    e.preventDefault()
+};

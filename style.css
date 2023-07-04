@@ -34,7 +34,7 @@ button {
     border: none;
     width: 50px;
     height: 37.5px;
-    color: white;
+    color: black;
     background-color: darkgray;
 }
 
@@ -56,11 +56,17 @@ button:active {
 .bot {
     border-radius: 50px;
 }
-/*
+
 .nums {
-    background-color: darkblue;
+    background-color: lightblue;
 }
 
 .operator, .equals {
-    background-color: yellow;
-}*/
+    background-color: darkblue;
+    color: white;
+}
+
+.clear, .delete {
+    background-color: blue;
+    color: white;
+}
