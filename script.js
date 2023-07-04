@@ -156,8 +156,11 @@ function keyboardFunctionality(e) {
     } else if (e.key === "x") {
         const button = document.querySelector(`button[data-button="*"]`);
         button.click();
+    } else if (e.key === "Backspace") {
+        const button = document.querySelector(`button[data-button="d"]`);
+        button.click();
     };
-    const button = document.querySelector(`button[data-button="${e.key}"]`);
+    const button = document.querySelector(`button[data-button="${e.key.toLowerCase()}"]`);
     if (!button) return
     button.click()
     e.preventDefault()
